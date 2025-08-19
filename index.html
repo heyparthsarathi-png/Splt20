@@ -1,290 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>SPL India • IPL Style League</title>
-<meta name="description" content="SPL India - IPL style school premier league website" />
-<style>
-  :root{
-    --blue:#0057ff; --orange:#ff6a00; --gold:#ffd54d; --dark:#0b0f1a; --muted:#e9eef7;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0}
-  body{
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    color:#fff; background: linear-gradient(135deg,var(--orange),var(--blue)) fixed;
-    min-height:100vh;
-  }
-  /* Top bar */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(10,14,26,.85); backdrop-filter: blur(6px);
-    border-bottom:1px solid rgba(255,255,255,.08);
-  }
-  .container{max-width:1100px; margin:auto; padding:0 16px}
-  .nav{
-    display:flex; align-items:center; justify-content:space-between; padding:12px 0;
-  }
-  .brand{font-weight:800; letter-spacing:.5px}
-  .menu a{
-    color:#fff; text-decoration:none; font-weight:600; margin:0 10px; font-size:14px;
-    padding:8px 10px; border-radius:6px;
-  }
-  .menu a:hover{background:rgba(255,255,255,.1)}
-  .btn{
-    background:linear-gradient(135deg,var(--gold),#ffea86); color:#000; font-weight:800;
-    padding:10px 16px; border-radius:10px; border:none; cursor:pointer
-  }
-  /* Hero */
-  .hero{
-    position:relative; overflow:hidden;
-    background:
-      linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.65)),
-      url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-    border-bottom:1px solid rgba(255,255,255,.1);
-  }
-  .hero-inner{padding:64px 0 48px}
-  .tag{display:inline-block; background:rgba(255,255,255,.12); padding:6px 10px; border-radius:999px; font-size:12px; letter-spacing:.4px}
-  h1{font-size:38px; margin:14px 0 8px}
-  .lead{opacity:.9; max-width:720px}
-  .hero-actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
-  .ghost{background:transparent; border:1px solid rgba(255,255,255,.35); color:#fff}
-  .pill{border-radius:999px}
-  /* Sections */
-  section{padding:36px 0}
-  .card{
-    background:rgba(10,14,26,.7);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:14px; padding:16px;
-  }
-  .grid{display:grid; gap:14px}
-  /* Countdown */
-  #count{font-size:24px; font-weight:800; letter-spacing:1px}
-  /* Stats */
-  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
-  .stat{background:rgba(255,255,255,.08); border-radius:12px; padding:16px; text-align:center}
-  .stat h3{margin:0; font-size:28px}
-  .stat p{margin:6px 0 0; font-size:12px; opacity:.85}
-  /* Teams */
-  .team-grid{grid-template-columns:repeat(5,1fr)}
-  .team{
-    background:linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
-    border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:18px; text-align:center;
-    transition: transform .2s ease;
-  }
-  .team:hover{transform: translateY(-4px)}
-  .team .badge{
-    width:56px; height:56px; margin:0 auto 8px; border-radius:50%;
-    background:radial-gradient(circle at 30% 30%, #fff, #ccc); color:#111; display:grid; place-items:center; font-weight:900
-  }
-  /* Fixtures */
-  table{width:100%; border-collapse:collapse; overflow:hidden; border-radius:12px}
-  th,td{padding:12px; text-align:left; background:rgba(255,255,255,.06)}
-  th{background:rgba(255,255,255,.12)}
-  tr+tr td{border-top:1px solid rgba(255,255,255,.08)}
-  .venue{opacity:.9; font-size:12px}
-  /* News scroller */
-  .news-row{display:flex; gap:12px; overflow-x:auto; scroll-behavior:smooth; padding-bottom:6px}
-  .news{min-width:240px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:12px}
-  .news small{opacity:.8}
-  /* Sponsors */
-  .sponsors{grid-template-columns:repeat(6,1fr)}
-  .logo{
-    background:#fff; color:#111; border-radius:10px; padding:14px; text-align:center; font-weight:800
-  }
-  /* Form */
-  form{display:grid; gap:10px}
-  input,select{
-    padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,.25);
-    background:rgba(255,255,255,.08); color:#fff
-  }
-  input::placeholder{color:#dfe6ff}
-  /* Footer */
-  footer{padding:22px 0; text-align:center; background:rgba(10,14,26,.85); border-top:1px solid rgba(255,255,255,.08)}
-  /* Responsive */
-  @media (max-width:900px){
-    .team-grid{grid-template-columns:repeat(3,1fr)}
-    .sponsors{grid-template-columns:repeat(3,1fr)}
-    .stats{grid-template-columns:repeat(2,1fr)}
-    h1{font-size:30px}
-  }
-  @media (max-width:540px){
-    .team-grid{grid-template-columns:repeat(2,1fr)}
-    .sponsors{grid-template-columns:repeat(2,1fr)}
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPL T20 League</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #001f3f, #0074D9);
+      color: white;
+      text-align: center;
+    }
+    header {
+      background: #FF4136;
+      padding: 15px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    nav {
+      background: #111;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #FFDC00;
+    }
+    section {
+      padding: 30px;
+    }
+    .teams {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .team {
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .team:hover {
+      background: #FFDC00;
+      transform: scale(1.05);
+    }
+    footer {
+      background: #111;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    button {
+      background: #FF4136;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #FF851B;
+    }
+  </style>
 </head>
 <body>
-
-<header>
-  <div class="container nav">
-    <div class="brand">🏆 SPL India</div>
-    <nav class="menu">
-      <a href="#home">Home</a>
-      <a href="#fixtures">Fixtures</a>
-      <a href="#teams">Teams</a>
-      <a href="#news">News</a>
-      <a href="#sponsors">Sponsors</a>
-      <a href="#register" class="pill">Register</a>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="container hero-inner">
-    <span class="tag">IPL Style • School Premier League</span>
-    <h1>SPL India 2025</h1>
-    <p class="lead">Experience the thrill of cricket like the IPL — blazing pace, roaring crowds, and rising stars. Register your team and be part of the league!</p>
-    <div class="hero-actions">
-      <a href="#register"><button class="btn">Register Now</button></a>
-      <a href="#fixtures"><button class="btn ghost">View Fixtures</button></a>
+  <header>🏏 SPLT20 LEAGUE</header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Teams</a>
+    <a href="#">Schedule</a>
+    <a href="#">Points Table</a>
+    <a href="#">Register</a>
+  </nav>
+  
+  <section>
+    <h2>Welcome to SPLT20 - Inspired by IPL</h2>
+    <p>The ultimate cricketing league of India! Get ready for the thrill.</p>
+    <button onclick="alert('Registration form coming soon!')">Register Now</button>
+  </section>
+  
+  <section>
+    <h2>Our Teams</h2>
+    <div class="teams">
+      <div class="team">Mumbai Warriors</div>
+      <div class="team">Delhi Dynamos</div>
+      <div class="team">Chennai Kings</div>
+      <div class="team">Kolkata Riders</div>
+      <div class="team">Punjab Panthers</div>
+      <div class="team">Rajasthan Royals</div>
+      <div class="team">Hyderabad Suns</div>
+      <div class="team">Bangalore Chargers</div>
+      <div class="team">Lucknow Tigers</div>
+      <div class="team">Gujarat Lions</div>
     </div>
-  </div>
-</section>
-
-<!-- LIVE STATS + COUNTDOWN -->
-<section>
-  <div class="container grid">
-    <div class="stats">
-      <div class="stat"><h3 id="teamsNum">10</h3><p>Teams</p></div>
-      <div class="stat"><h3 id="matchesNum">45</h3><p>Matches</p></div>
-      <div class="stat"><h3 id="playersNum">240</h3><p>Players</p></div>
-      <div class="stat"><h3 id="sponsorsNum">8</h3><p>Sponsors</p></div>
-    </div>
-    <div class="card">
-      <strong>Next Match Countdown:</strong>
-      <div id="count">Loading…</div>
-      <div class="venue">SPL Arena • 10:00 AM</div>
-    </div>
-  </div>
-</section>
-
-<!-- FIXTURES -->
-<section id="fixtures">
-  <div class="container grid">
-    <h2>Fixtures</h2>
-    <div class="card">
-      <table>
-        <thead><tr><th>Date</th><th>Match</th><th>Venue</th></tr></thead>
-        <tbody>
-          <tr><td>20 Aug 2025</td><td>Thunder vs Blaze</td><td>SPL Arena</td></tr>
-          <tr><td>22 Aug 2025</td><td>Warriors vs Titans</td><td>City Ground</td></tr>
-          <tr><td>25 Aug 2025</td><td>Panthers vs Eagles</td><td>Royal Stadium</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- TEAMS -->
-<section id="teams">
-  <div class="container grid">
-    <h2>Teams</h2>
-    <div class="grid team-grid">
-      <div class="team"><div class="badge">T1</div>Thunder</div>
-      <div class="team"><div class="badge">BZ</div>Blaze</div>
-      <div class="team"><div class="badge">WK</div>Warriors</div>
-      <div class="team"><div class="badge">TT</div>Titans</div>
-      <div class="team"><div class="badge">PN</div>Panthers</div>
-      <div class="team"><div class="badge">EG</div>Eagles</div>
-      <div class="team"><div class="badge">CH</div>Chargers</div>
-      <div class="team"><div class="badge">LN</div>Lions</div>
-      <div class="team"><div class="badge">SH</div>Sharks</div>
-      <div class="team"><div class="badge">FK</div>Falcons</div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWS -->
-<section id="news">
-  <div class="container grid">
-    <h2>Latest News</h2>
-    <div class="news-row" id="newsRow">
-      <!-- JS fills news cards -->
-    </div>
-  </div>
-</section>
-
-<!-- SPONSORS -->
-<section id="sponsors">
-  <div class="container grid">
-    <h2>Our Sponsors</h2>
-    <div class="grid sponsors">
-      <div class="logo">Platinum • ABC</div>
-      <div class="logo">Gold • XYZ</div>
-      <div class="logo">Gold • SportX</div>
-      <div class="logo">Silver • Prime</div>
-      <div class="logo">Silver • Nova</div>
-      <div class="logo">Partner • Flex</div>
-    </div>
-  </div>
-</section>
-
-<!-- REGISTER -->
-<section id="register">
-  <div class="container grid">
-    <h2>Register Your Team</h2>
-    <div class="card">
-      <form onsubmit="alert('Registration submitted! (demo)'); return false;">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email" required />
-        <select required>
-          <option value="">Select Team</option>
-          <option>Thunder</option><option>Blaze</option><option>Warriors</option>
-          <option>Titans</option><option>Panthers</option><option>Eagles</option>
-        </select>
-        <button class="btn" type="submit">Register Now</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">© 2025 SPL India • Built with ❤️ in IPL style</div>
-</footer>
-
-<script>
-  // ===== Setup (change nextMatchDate if needed) =====
-  const nextMatchDate = new Date("Aug 20, 2025 10:00:00").getTime();
-
-  // ===== Countdown =====
-  const countEl = document.getElementById('count');
-  function tick(){
-    const now = Date.now();
-    let d = nextMatchDate - now;
-    if(d <= 0){ countEl.textContent = "Match Started!"; return; }
-    const days = Math.floor(d / (1000*60*60*24));
-    const hours = Math.floor((d % (1000*60*60*24)) / (1000*60*60));
-    const mins = Math.floor((d % (1000*60*60)) / (1000*60));
-    const secs = Math.floor((d % (1000*60)) / 1000);
-    countEl.textContent = `${days}d ${hours}h ${mins}m ${secs}s`;
-  }
-  tick(); setInterval(tick,1000);
-
-  // ===== News (inline demo data) =====
-  const newsData = [
-    { text:"Thunder clinch opener in a thriller!", date:"19 Aug 2025" },
-    { text:"New sponsor ABC joins SPL India.", date:"18 Aug 2025" },
-    { text:"Media day announced for teams.", date:"17 Aug 2025" },
-    { text:"Fixture update: Night games added.", date:"16 Aug 2025" }
-  ];
-  const row = document.getElementById('newsRow');
-  newsData.forEach(n=>{
-    const d=document.createElement('div');
-    d.className='news';
-    d.innerHTML = `<strong>${n.text}</strong><br><small>${n.date}</small>`;
-    row.appendChild(d);
-  });
-
-  // ===== Auto-scroll news row (gentle) =====
-  let x=0;
-  setInterval(()=>{
-    x+=1; if(x>row.scrollWidth - row.clientWidth) x=0;
-    row.scrollTo({left:x,behavior:'smooth'});
-  },60);
-</script>
-
+  </section>
+  
+  <footer>
+    © 2025 SPLT20 League | Made with ❤️ for Cricket Fans
+  </footer>
 </body>
 </html>
